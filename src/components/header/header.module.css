@@ -1,0 +1,92 @@
+.header {
+  position: relative;
+  background: url('../images/texture-tile.png'),
+    linear-gradient(to bottom right, #c2c2b2, #e0e0d0, #a3a393);
+  position: relative;
+}
+
+.logo {
+  height: auto;
+  width: 235px;
+}
+
+.subhead {
+  position: relative;
+  left: 78px;
+  bottom: 8px;
+  position: relative;
+}
+
+.menuButton {
+  background: var(--color-neutral-7);
+  position: absolute;
+  top: 50%;
+  right: 24px;
+  margin-top: -28px;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  display: block;
+  height: 0px;
+  border-radius: 2px;
+  border: 2px solid var(--color-neutral-2);
+}
+
+.hamburger {
+  width: 50%;
+  position: relative;
+  margin: 0 auto;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  width: 100%;
+  position: absolute;
+  left: -2px;
+}
+
+.hamburger::before {
+  transform: translate3d(0, -8px, 0);
+}
+
+.hamburger::after {
+  transform: translate3d(0, 4px, 0);
+}
+
+.navTitle {
+  display: flex;
+  align-items: center;
+  margin-left: -14px;
+  line-height: var(--line-height-tight);
+}
+
+.navWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 0;
+}
+
+.navWrapper ul {
+  margin: 1rem;
+}
+
+.nav li {
+  width: 100%;
+}
+
+.social {
+  padding-top: 12px;
+}
+
+.badge {
+  opacity: 0.7;
+}
+
+.flourish {
+  opacity: 0.333;
+}

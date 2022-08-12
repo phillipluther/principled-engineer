@@ -5,6 +5,10 @@
   "version": "0.1.0",
   "author": "Phillip Luther <dev@phillipluther.com>",
   "dependencies": {
+    "@fontsource/lora": "^4.5.10",
+    "@fontsource/merriweather": "^4.5.12",
+    "@headlessui/react": "^1.6.6",
+    "classnames": "^2.3.1",
     "gatsby": "^4.20.0",
     "gatsby-plugin-feed": "^4.20.0",
     "gatsby-plugin-image": "^2.20.0",
@@ -20,9 +24,8 @@
     "gatsby-transformer-sharp": "^4.20.0",
     "prismjs": "^1.28.0",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0",
-    "typeface-merriweather": "0.0.72",
-    "typeface-montserrat": "0.0.75"
+    "react-aria": "^3.18.0",
+    "react-dom": "^18.1.0"
   },
   "devDependencies": {
     "prettier": "^2.7.1"
