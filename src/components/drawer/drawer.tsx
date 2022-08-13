@@ -1,9 +1,10 @@
-import { Fragment } from 'react';
+import React, { Fragment } from 'react';
 import { VisuallyHidden } from 'react-aria';
 import { Dialog, Transition } from '@headlessui/react';
 import classnames from 'classnames';
-import styles from './drawer.module.css';
-import styleUtils from '../style-utils.module.css';
+
+import * as styles from './drawer.module.css';
+import { padded, iconButton } from '../../style-utils.module.css';
 
 export type DrawerProps = {
   title: React.ReactNode;
@@ -49,14 +50,14 @@ const Drawer = ({
         >
           <Dialog.Panel
             as="section"
-            className={classnames(styleUtils.padded, styles.overlay, className)}
+            className={classnames(padded, styles.overlay, className)}
           >
             <header className={styles.header}>
               <Dialog.Title>{title}</Dialog.Title>
 
               <button
                 type="button"
-                className={classnames(styleUtils.iconButton, styles.close)}
+                className={classnames(iconButton, styles.close)}
                 onClick={() => onClose()}
               >
                 <span className={styles.closeX} />

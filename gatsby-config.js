@@ -3,7 +3,7 @@ module.exports = {
     title: 'The Principled Engineer',
     author: 'Phillip Luther',
     description:
-      'A blog about building modern web applications, ethics in software engineering, and developer culture',
+      'A blog about building modern web applications with JavaScript, CSS, HTML; ethics in software engineering; and developer culture',
     siteUrl: 'https://principled.engineer',
   },
   plugins: [
@@ -46,6 +46,15 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /\.inline\.svg$/,
+        },
+      },
+    },
+    'gatsby-plugin-optimize-svgs',
     {
       resolve: `gatsby-plugin-feed`,
       options: {

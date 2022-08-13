@@ -1,8 +1,11 @@
 .header {
   position: relative;
-  background: url('../images/texture-tile.png'),
+  background: url('/images/texture-tile.png'),
     linear-gradient(to bottom right, #c2c2b2, #e0e0d0, #a3a393);
   position: relative;
+}
+
+.title {
 }
 
 .logo {
@@ -58,6 +61,7 @@
 
 .navTitle {
   display: flex;
+  width: 220px;
   align-items: center;
   margin-left: -14px;
   line-height: var(--line-height-tight);

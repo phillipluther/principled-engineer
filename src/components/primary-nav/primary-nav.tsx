@@ -1,6 +1,7 @@
-import NextLink from 'next/link';
+import React from 'react';
+import { Link } from 'gatsby';
 import classnames from 'classnames';
-import styles from './primary-nav.module.css';
+import * as styles from './primary-nav.module.css';
 
 export type PrimaryNavProps = {
   showHome?: boolean;
@@ -28,16 +29,20 @@ export const primaryNavItems: PrimaryNavItemProps[] = [
   },
 ];
 
-const PrimaryNav = ({ showHome = true, className, ...props }: PrimaryNavProps) => (
+const PrimaryNav = ({
+  showHome = true,
+  className,
+  ...props
+}: PrimaryNavProps) => (
   <ul className={classnames(styles.wrapper, className)} {...props}>
     {primaryNavItems.map(({ label, href }) =>
       !showHome && href === '/' ? null : (
         <li className={styles.item} key={href}>
-          <NextLink href={href}>
-            <a className={styles.link}>{label}</a>
-          </NextLink>
+          <Link to={href} className={styles.link}>
+            {label}
+          </Link>
         </li>
-      ),
+      )
     )}
   </ul>
 );

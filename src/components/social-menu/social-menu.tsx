@@ -1,7 +1,8 @@
+import React from 'react';
 import { BsTwitter, BsEnvelopeFill, BsRssFill } from 'react-icons/bs';
 import classnames from 'classnames';
 import { PrimaryNavItemProps } from '../primary-nav';
-import styles from './social-menu.module.css';
+import * as styles from './social-menu.module.css';
 
 export type SocialMenuItemProps = PrimaryNavItemProps & {
   icon: React.FC;
@@ -22,7 +23,7 @@ export const socialItems: SocialMenuItemProps[] = [
     href: 'mailto:hello@principled.engineer',
     icon: BsEnvelopeFill,
   },
-  { label: 'Subscribe with RSS', href: '/feed.xml', icon: BsRssFill },
+  { label: 'Subscribe with RSS', href: '/rss.xml', icon: BsRssFill },
 ];
 
 const SocialMenu = ({ className, ...props }: SocialMenuProps) => (

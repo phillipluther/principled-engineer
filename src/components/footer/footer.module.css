@@ -1,0 +1,25 @@
+.footer {
+  background: url('/images/texture-tile.png');
+  color: #c2c2b2;
+  font-size: 0.8rem;
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 2px solid #292919;
+}
+
+.legal {
+  color: #a3a393;
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+}
+
+.nav a {
+  font-size: var(--font-size-1);
+}
+
+.flourish {
+  margin-bottom: 16px;
+}
