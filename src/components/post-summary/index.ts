@@ -1,1 +1,2 @@
-export { default, PostProps } from './post-summary';
+export { default } from './post-summary';
+export type { PostProps } from './post-summary';

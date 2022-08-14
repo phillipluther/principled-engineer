@@ -15,10 +15,9 @@
   text-decoration: underline;
 }
 
-.imageWrapper {
+.image {
   position: relative;
   width: calc(100% + 32px);
-  padding-bottom: 56.25%;
   left: -16px;
   top: -16px;
 }

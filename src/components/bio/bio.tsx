@@ -10,7 +10,7 @@ const Bio = () => (
     <h2 className={classnames(displayFont, styles.title)}>About the Author</h2>
     <div className={styles.image}>
       <StaticImage
-        src="/images/portrait-avatar.jpg"
+        src="../../images/portrait-avatar.jpg"
         width={112}
         height={112}
         alt="Phillip Luther, author and sole contributor to the Principled Engineer"

@@ -12,7 +12,7 @@ keywords:
   - npm init
 series: Practicals
 slug: 'set-default-values-npm-init'
-cover: '/assets/old-boots.jpeg'
+cover: 'old-boots.jpeg'
 cover_credit: 'Oziel Gomez'
 cover_credit_link: 'https://unsplash.com/@ozgomz'
 ---
@@ -99,7 +99,7 @@ Setting sensible NPM defaults is a one-time action to remove friction. Once set,
 
 If you simply npm init and follow the prompts, though, you'll find your updated config settings waiting for you as the default-mash-return options.
 
-![Any defaults you set apply to the npm-init interview](/assets/npm-init-interview-default-settings.png)
+![Any defaults you set apply to the npm-init interview](./npm-init-interview-default-settings.png)
 
 That makes handling project setup exceptions all the easier. Speaking of exceptions …
 

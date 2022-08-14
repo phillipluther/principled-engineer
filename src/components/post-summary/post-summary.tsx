@@ -3,6 +3,7 @@ import {
   StaticImage,
   GatsbyImage,
   IGatsbyImageData,
+  getImage,
 } from 'gatsby-plugin-image';
 import { Link } from 'gatsby';
 import { VisuallyHidden } from 'react-aria';
@@ -42,39 +43,41 @@ const PostSummary = ({
   headingLevel: Heading = 'h2',
   className,
 }: PostSummaryProps) => {
-  const postLink = `/blog/${slug}`;
+  const coverImage = cover ? getImage(cover) : null;
 
   return (
     <article
       className={classnames(padded, textified, styles.wrapper, className)}
     >
       <header>
-        <div className={styles.imageWrapper}>
-          {cover ? (
-            <GatsbyImage image={cover} alt="" aria-hidden />
-          ) : (
-            <StaticImage
-              src="../../images/social-card.jpg"
-              width={720}
-              height={405}
-              alt=""
-              aria-hidden
-            />
-          )}
-        </div>
+        {coverImage ? (
+          <GatsbyImage
+            image={coverImage}
+            alt=""
+            aria-hidden
+            className={styles.image}
+          />
+        ) : (
+          <StaticImage
+            src="../../images/social-card.jpg"
+            width={720}
+            height={405}
+            alt=""
+            aria-hidden
+            className={styles.image}
+          />
+        )}
 
         <Heading className={classnames(displayFont, styles.title)}>
-          <Link to={postLink}>{title}</Link>
+          <Link to={slug}>{title}</Link>
         </Heading>
         <p>{published}</p>
       </header>
 
       <section>
         <p>{summary}</p>
-        <Link to={postLink}>
-          <a className={styles.link} tabIndex={-1}>
-            <VisuallyHidden>Read More: {title}</VisuallyHidden>
-          </a>
+        <Link to={slug} className={styles.link} tabIndex={-1}>
+          <VisuallyHidden>Read More: {title}</VisuallyHidden>
         </Link>
       </section>
     </article>

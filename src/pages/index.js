@@ -15,50 +15,23 @@ const BlogIndex = ({ data, location }) => {
   if (posts.length === 0) {
     return (
       <Layout location={location} title={siteTitle}>
-        <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
-        </p>
+        <p>No blog posts found.</p>
       </Layout>
     );
   }
 
+  console.log('POSTS', posts);
+
   return (
     <Layout location={location} title={siteTitle}>
-      <PostList title="All Posts" postsData={[]} />
-      {/* <ol style={{ listStyle: `none` }}>
-        {posts.map((post) => {
-          const title = post.frontmatter.title || post.fields.slug;
-
-          return (
-            <li key={post.fields.slug}>
-              <article
-                className="post-list-item"
-                itemScope
-                itemType="http://schema.org/Article"
-              >
-                <header>
-                  <h2>
-                    <Link to={post.fields.slug} itemProp="url">
-                      <span itemProp="headline">{title}</span>
-                    </Link>
-                  </h2>
-                  <small>{post.frontmatter.date}</small>
-                </header>
-                <section>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: post.frontmatter.description || post.excerpt,
-                    }}
-                    itemProp="description"
-                  />
-                </section>
-              </article>
-            </li>
-          );
-        })}
-      </ol> */}
+      <PostList
+        title="All Posts"
+        postsData={posts.map(({ frontmatter, fields, excerpt }) => ({
+          slug: fields.slug,
+          summary: excerpt,
+          ...frontmatter,
+        }))}
+      />
     </Layout>
   );
 };
@@ -70,7 +43,7 @@ export default BlogIndex;
  *
  * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
  */
-export const Head = () => <Seo title="All posts" />;
+export const Head = () => <Seo title={title} description={description} />;
 
 export const pageQuery = graphql`
   query {
@@ -86,11 +59,31 @@ export const pageQuery = graphql`
           slug
         }
         frontmatter {
-          date(formatString: "MMMM DD, YYYY")
+          published(formatString: "MMMM DD, YYYY")
           title
-          description
+          summary
+          cover {
+            childImageSharp {
+              gatsbyImageData(width: 720)
+            }
+          }
         }
       }
     }
   }
 `;
+
+// id: string;
+// markdown: string;
+// title: string;
+// author: string;
+// slug: string;
+// summary?: string;
+// published: string;
+// tags?: string[];
+// keywords?: string[];
+// series?: string;
+// cover?: IGatsbyImageData;
+// cover_credit?: string;
+// cover_credit_link?: string;
+// cover_alt?: string;
