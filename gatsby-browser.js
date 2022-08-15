@@ -6,4 +6,4 @@ import 'reset.css';
 
 import './src/style.css';
 
-import 'prismjs/themes/prism.css';
+import 'prismjs/themes/prism-okaidia.css';
