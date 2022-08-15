@@ -99,6 +99,9 @@ exports.createSchemaCustomization = ({ actions }) => {
       title: String
       description: String
       published: Date @dateformat
+      cover_alt: String
+      cover_credit: String
+      cover_credit_link: String
     }
 
     type Fields {

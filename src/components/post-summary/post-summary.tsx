@@ -8,6 +8,7 @@ import {
 import { Link } from 'gatsby';
 import { VisuallyHidden } from 'react-aria';
 import classnames from 'classnames';
+import Content from '../content';
 
 import * as styles from './post-summary.module.css';
 import { padded, textified, displayFont } from '../../style-utils.module.css';
@@ -46,7 +47,8 @@ const PostSummary = ({
   const coverImage = cover ? getImage(cover) : null;
 
   return (
-    <article
+    <Content
+      as="article"
       className={classnames(padded, textified, styles.wrapper, className)}
     >
       <header>
@@ -80,7 +82,7 @@ const PostSummary = ({
           <VisuallyHidden>Read More: {title}</VisuallyHidden>
         </Link>
       </section>
-    </article>
+    </Content>
   );
 };
 

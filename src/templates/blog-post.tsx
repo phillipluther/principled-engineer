@@ -1,37 +1,49 @@
-import * as React from "react"
-import { Link, graphql } from "gatsby"
-
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import * as React from 'react';
+import { Link, graphql } from 'gatsby';
+import Bio from '../components/bio';
+import Layout from '../components/layout';
+import Seo from '../components/seo';
+import ContentHeader from '../components/content-header';
+import Content from '../components/content';
 
 const BlogPostTemplate = ({
   data: { previous, next, site, markdownRemark: post },
   location,
 }) => {
-  const siteTitle = site.siteMetadata?.title || `Title`
-
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={location}>
       <article
         className="blog-post"
         itemScope
         itemType="http://schema.org/Article"
       >
-        <header>
-          <h1 itemProp="headline">{post.frontmatter.title}</h1>
+        <ContentHeader
+          title={post.frontmatter.title}
+          description={post.frontmatter.summary}
+          published={post.frontmatter.published}
+          image={{
+            src: post.frontmatter.cover,
+            alt: post.frontmatter.title,
+            credit: post.frontmatter.cover_credit,
+            creditLink: post.frontmatter.cover_credit_link,
+          }}
+        />
+        {/* <h1 itemProp="headline">{post.frontmatter.title}</h1>
           <p>{post.frontmatter.date}</p>
-        </header>
-        <section
+        </ContentHeader> */}
+
+        <Content
+          isBlogPost={true}
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
         />
-        <hr />
+
         <footer>
           <Bio />
         </footer>
       </article>
-      <nav className="blog-post-nav">
+
+      {/* <nav className="blog-post-nav">
         <ul
           style={{
             display: `flex`,
@@ -56,21 +68,21 @@ const BlogPostTemplate = ({
             )}
           </li>
         </ul>
-      </nav>
+      </nav> */}
     </Layout>
-  )
-}
+  );
+};
 
 export const Head = ({ data: { markdownRemark: post } }) => {
   return (
     <Seo
       title={post.frontmatter.title}
-      description={post.frontmatter.description || post.excerpt}
+      description={post.frontmatter.summary || post.excerpt}
     />
-  )
-}
+  );
+};
 
-export default BlogPostTemplate
+export default BlogPostTemplate;
 
 export const pageQuery = graphql`
   query BlogPostBySlug(
@@ -88,9 +100,17 @@ export const pageQuery = graphql`
       excerpt(pruneLength: 160)
       html
       frontmatter {
+        published(formatString: "MMMM DD, YYYY")
         title
-        date(formatString: "MMMM DD, YYYY")
-        description
+        summary
+        cover {
+          childImageSharp {
+            gatsbyImageData(width: 720)
+          }
+        }
+        cover_alt
+        cover_credit
+        cover_credit_link
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {
@@ -110,4 +130,19 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
+
+// id: string;
+// markdown: string;
+// title: string;
+// author: string;
+// slug: string;
+// summary?: string;
+// published: string;
+// tags?: string[];
+// keywords?: string[];
+// series?: string;
+// cover?: IGatsbyImageData;
+// cover_credit?: string;
+// cover_credit_link?: string;
+// cover_alt?: string;

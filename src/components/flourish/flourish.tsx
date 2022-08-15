@@ -46,7 +46,7 @@ const Flourish = ({
 
   return (
     <div className={classnames(styles.wrapper, styles[size], className)}>
-      <Component alt="" width={width} height={height} aria-hidden />
+      <Component alt="" aria-hidden />
     </div>
   );
 };

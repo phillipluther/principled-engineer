@@ -129,4 +129,4 @@ I start (and abandon) myriad new projects. Manually updating a `package.json` fi
 
 Seriously, though … update your NPM config defaults. Do it as a one-time thing and never futz with it again. Never futz with it until you buy a new computer and have to reconfigure your whole environment, at least. The more projects you create the more the move pays for itself. The focus you're not spending on JSON settings is focus you can spend on whatever code you're actually trying to write.
 
-I don't use Yarn, but yeah … yada<sup>3</sup> all of the above for Yarn, too.
+I don't use Yarn, but yeah … yada-cubed all of the above for Yarn, too.

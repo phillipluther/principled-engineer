@@ -1,13 +1,14 @@
 import React from 'react';
 import classnames from 'classnames';
 import { StaticImage } from 'gatsby-plugin-image';
+import Content from '../content';
 
 import * as styles from './bio.module.css';
 import { padded, displayFont } from '../../style-utils.module.css';
 
 const Bio = () => (
-  <aside className={classnames(padded, styles.wrapper)}>
-    <h2 className={classnames(displayFont, styles.title)}>About the Author</h2>
+  <Content as="aside" className={classnames(padded, styles.wrapper)}>
+    <h2 className={classnames(styles.title)}>About the Author</h2>
     <div className={styles.image}>
       <StaticImage
         src="../../images/portrait-avatar.jpg"
@@ -42,7 +43,7 @@ const Bio = () => (
       buffoonery I'll translate "life long" to 20'ish years. Throwing that out
       for clarity.
     </p>
-  </aside>
+  </Content>
 );
 
 export default Bio;
