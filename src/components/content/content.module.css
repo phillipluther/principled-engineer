@@ -25,6 +25,18 @@
   font-weight: 500;
 }
 
+.wrapper h4 {
+  font-size: var(--font-size-2);
+}
+
+.wrapper h3 {
+  font-size: var(--font-size-3);
+}
+
+.wrapper h2 {
+  font-size: var(--font-size-3);
+}
+
 /**
  * blog post content ... little heavy because dealing with markdown => plain HTML
  * ---

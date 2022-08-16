@@ -20,8 +20,6 @@ const BlogIndex = ({ data, location }) => {
     );
   }
 
-  console.log('POSTS', posts);
-
   return (
     <Layout location={location} title={siteTitle}>
       <PostList
@@ -72,18 +70,3 @@ export const pageQuery = graphql`
     }
   }
 `;
-
-// id: string;
-// markdown: string;
-// title: string;
-// author: string;
-// slug: string;
-// summary?: string;
-// published: string;
-// tags?: string[];
-// keywords?: string[];
-// series?: string;
-// cover?: IGatsbyImageData;
-// cover_credit?: string;
-// cover_credit_link?: string;
-// cover_alt?: string;

@@ -28,9 +28,6 @@ const BlogPostTemplate = ({
             creditLink: post.frontmatter.cover_credit_link,
           }}
         />
-        {/* <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
-        </ContentHeader> */}
 
         <Content
           isBlogPost={true}
