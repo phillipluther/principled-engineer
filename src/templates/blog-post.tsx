@@ -1,10 +1,11 @@
-import * as React from 'react';
 import { Link, graphql } from 'gatsby';
+import * as React from 'react';
+
 import Bio from '../components/bio';
+import Content from '../components/content';
+import ContentHeader from '../components/content-header';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
-import ContentHeader from '../components/content-header';
-import Content from '../components/content';
 
 const BlogPostTemplate = ({
   data: { previous, next, site, markdownRemark: post },

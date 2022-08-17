@@ -1,6 +1,7 @@
-import React from 'react';
-import { BsTwitter, BsEnvelopeFill, BsRssFill } from 'react-icons/bs';
 import classnames from 'classnames';
+import React from 'react';
+import { BsEnvelopeFill, BsRssFill, BsTwitter } from 'react-icons/bs';
+
 import { PrimaryNavItemProps } from '../primary-nav';
 import * as styles from './social-menu.module.css';
 

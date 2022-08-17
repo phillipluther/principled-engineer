@@ -1,11 +1,11 @@
+import classnames from 'classnames';
 import React from 'react';
 import { VisuallyHidden } from 'react-aria';
-import classnames from 'classnames';
+
+import { contained, padded, textified } from '../../style-utils.module.css';
 import PrimaryNav from '../primary-nav';
 import SocialMenu from '../social-menu';
-
 import * as styles from './footer.module.css';
-import { contained, padded, textified } from '../../style-utils.module.css';
 
 const Footer = () => (
   <footer className={classnames(padded, contained, styles.footer)}>

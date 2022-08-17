@@ -1,6 +1,7 @@
-import React from 'react';
-import { Link } from 'gatsby';
 import classnames from 'classnames';
+import { Link } from 'gatsby';
+import React from 'react';
+
 import * as styles from './primary-nav.module.css';
 
 export type PrimaryNavProps = {

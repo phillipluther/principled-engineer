@@ -1,23 +1,18 @@
-import React, { useState, useRef } from 'react';
+import classnames from 'classnames';
 import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
-import classnames from 'classnames';
+import React, { useRef, useState } from 'react';
 import { VisuallyHidden } from 'react-aria';
-import Drawer from '../drawer';
-import PrimaryNav from '../primary-nav';
-import SocialMenu from '../social-menu';
-import { SkipNavLink } from '../skip-nav';
-import Flourish from '../flourish';
-import Logo from '../../images/principled-engineer-logo.inline.svg';
-import Tagline from '../../images/code-good-code-well.inline.svg';
 
+import Tagline from '../../images/code-good-code-well.inline.svg';
+import Logo from '../../images/principled-engineer-logo.inline.svg';
+import { contained, iconButton, padded } from '../../style-utils.module.css';
+import Drawer from '../drawer';
+import Flourish from '../flourish';
+import PrimaryNav from '../primary-nav';
+import { SkipNavLink } from '../skip-nav';
+import SocialMenu from '../social-menu';
 import * as styles from './header.module.css';
-import {
-  flipped,
-  padded,
-  contained,
-  iconButton,
-} from '../../style-utils.module.css';
 
 const NavTitle = () => (
   <span className={styles.navTitle}>
@@ -77,7 +72,8 @@ const Header = () => {
           <Flourish
             variant="bloom"
             size="xs"
-            className={classnames(styles.flourish, flipped)}
+            className={classnames(styles.flourish)}
+            flipped
           />
 
           <SocialMenu className={styles.social} />

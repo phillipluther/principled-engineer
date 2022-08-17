@@ -1,10 +1,10 @@
-import * as React from 'react';
 import classnames from 'classnames';
-import Header from './header';
-import Footer from './footer';
-import { SkipNavTarget } from './skip-nav';
+import * as React from 'react';
 
-import { padded, contained } from '../style-utils.module.css';
+import { contained, padded } from '../style-utils.module.css';
+import Footer from './footer';
+import Header from './header';
+import { SkipNavTarget } from './skip-nav';
 
 const Layout = ({ location, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`;

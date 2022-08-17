@@ -1,10 +1,11 @@
-import * as React from 'react';
 import { Link, graphql } from 'gatsby';
-import Layout from '../components/layout';
-import Seo from '../components/seo';
-import ContentHeader from '../components/content-header';
+import * as React from 'react';
+
 import Content from '../components/content';
+import ContentHeader from '../components/content-header';
+import Layout from '../components/layout';
 import PostList from '../components/post-list';
+import Seo from '../components/seo';
 
 const pageTitle = 'Page Not Found';
 const pageDescription = `It would seem the page you're looking for doesn't exist. Or, more accurately, the page you tried to access doesn't exist at this location.`;

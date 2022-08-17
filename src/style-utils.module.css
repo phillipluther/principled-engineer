@@ -22,10 +22,6 @@
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
 }
 
-.flipped {
-  transform: rotate(180deg);
-}
-
 .textified {
   line-height: 1.563;
 }

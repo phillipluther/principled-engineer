@@ -1,8 +1,9 @@
 import * as React from 'react';
+
+import Content from '../components/content';
+import ContentHeader from '../components/content-header';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
-import ContentHeader from '../components/content-header';
-import Content from '../components/content';
 
 const pageTitle = 'About';
 const pageDescription =

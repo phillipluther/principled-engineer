@@ -1,10 +1,10 @@
-import React from 'react';
 import classnames from 'classnames';
 import { StaticImage } from 'gatsby-plugin-image';
-import Content from '../content';
+import React from 'react';
 
+import { displayFont, padded } from '../../style-utils.module.css';
+import Content from '../content';
 import * as styles from './bio.module.css';
-import { padded, displayFont } from '../../style-utils.module.css';
 
 const Bio = () => (
   <Content as="aside" className={classnames(padded, styles.wrapper)}>

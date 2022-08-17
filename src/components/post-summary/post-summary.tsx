@@ -1,17 +1,17 @@
-import React from 'react';
+import classnames from 'classnames';
+import { Link } from 'gatsby';
 import {
-  StaticImage,
   GatsbyImage,
   IGatsbyImageData,
+  StaticImage,
   getImage,
 } from 'gatsby-plugin-image';
-import { Link } from 'gatsby';
+import React from 'react';
 import { VisuallyHidden } from 'react-aria';
-import classnames from 'classnames';
-import Content from '../content';
 
+import { displayFont, padded, textified } from '../../style-utils.module.css';
+import Content from '../content';
 import * as styles from './post-summary.module.css';
-import { padded, textified, displayFont } from '../../style-utils.module.css';
 
 export type PostProps = {
   id: string;

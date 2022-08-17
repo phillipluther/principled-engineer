@@ -1,8 +1,9 @@
-import * as React from 'react';
 import { graphql } from 'gatsby';
+import * as React from 'react';
+
 import Layout from '../components/layout';
-import Seo from '../components/seo';
 import PostList from '../components/post-list';
+import Seo from '../components/seo';
 
 const title = 'The Principled Engineer: A Blog';
 const description =

@@ -1,9 +1,8 @@
-import React from 'react';
-import { GatsbyImage, IGatsbyImageData, getImage } from 'gatsby-plugin-image';
 import classnames from 'classnames';
-import Flourish from '../flourish';
+import { GatsbyImage, IGatsbyImageData, getImage } from 'gatsby-plugin-image';
+import React from 'react';
 
-import { flipped } from '../../style-utils.module.css';
+import Flourish from '../flourish';
 import * as styles from './content-header.module.css';
 
 export type ContentHeaderProps = {
@@ -42,13 +41,13 @@ const ContentHeader = ({
 
       {description && (
         <>
-          <Flourish className={classnames(styles.flourish, flipped)} />
+          <Flourish className={classnames(styles.flourish)} flipped />
           <p className={styles.description}>{description}</p>
         </>
       )}
 
       {!description && (
-        <Flourish className={classnames(styles.flourish, flipped)} />
+        <Flourish className={classnames(styles.flourish)} flipped />
       )}
 
       {coverImage && (

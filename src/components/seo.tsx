@@ -1,5 +1,5 @@
+import { graphql, useStaticQuery } from 'gatsby';
 import * as React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
 
 export type SeoProps = {
   title: string;

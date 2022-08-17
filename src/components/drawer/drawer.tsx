@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react';
-import { VisuallyHidden } from 'react-aria';
 import { Dialog, Transition } from '@headlessui/react';
 import classnames from 'classnames';
+import React, { Fragment } from 'react';
+import { VisuallyHidden } from 'react-aria';
 
+import { iconButton, padded } from '../../style-utils.module.css';
 import * as styles from './drawer.module.css';
-import { padded, iconButton } from '../../style-utils.module.css';
 
 export type DrawerProps = {
   title: React.ReactNode;

@@ -1,8 +1,8 @@
-import React from 'react';
 import classnames from 'classnames';
+import React from 'react';
+
 import Bloom from '../../images/flourish-bloom.inline.svg';
 import Wheel from '../../images/flourish-wheel.inline.svg';
-
 import * as styles from './flourish.module.css';
 
 export const flourishes = {
@@ -22,6 +22,7 @@ export type FlourishProps = {
   size?: 'xs' | 'sm' | 'md' | 'lg';
   variant?: 'bloom' | 'wheel';
   className?: string;
+  flipped?: boolean;
 };
 
 const widthsBySize = {
@@ -35,6 +36,7 @@ const Flourish = ({
   variant = 'wheel',
   size = 'md',
   className,
+  flipped = false,
 }: FlourishProps) => {
   const {
     component: Component,
@@ -45,7 +47,14 @@ const Flourish = ({
   const height = (nativeHeight * width) / nativeWidth;
 
   return (
-    <div className={classnames(styles.wrapper, styles[size], className)}>
+    <div
+      className={classnames(
+        { [styles.flipped]: flipped },
+        styles.wrapper,
+        styles[size],
+        className
+      )}
+    >
       <Component alt="" aria-hidden />
     </div>
   );
