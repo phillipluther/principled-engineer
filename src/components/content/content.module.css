@@ -1,28 +1,83 @@
-.wrapper {
+.compact {
   line-height: var(--line-height-mid);
 }
 
-.wrapper > * {
+.compact > * {
   margin: 1.2rem 0;
 }
 
-.wrapper > *:first-child {
+.compact > *:first-child {
   margin-top: 0;
 }
 
-.wrapper > *:last-child {
+.compact > *:last-child {
   margin-bottom: 0;
 }
 
-.wrapper h1,
+.compact h1,
+.compact h2,
+.compact h3,
+.compact h4,
+.compact h5,
+.compact h6 {
+  color: #e0e0d0;
+  font-family: var(--display-font);
+  line-height: var(--line-height-tight);
+  font-weight: 500;
+}
+
+.compact h4 {
+  font-size: var(--font-size-2);
+}
+
+.compact h3 {
+  font-size: var(--font-size-3);
+}
+
+.compact h2 {
+  font-size: var(--font-size-3);
+}
+
+/**
+ * blog post or page content ... little heavy because dealing with markdown => plain HTML
+ * ---
+ */
+.wrapper {
+  line-height: var(--line-height-loose);
+}
+
+.wrapper > * {
+  margin: 1.6rem 0;
+}
+
+.compact a,
+.wrapper a {
+  color: #ffffef;
+  text-decoration: underline;
+}
+
+.compact a:hover,
+.compact a:focus-visible,
+.wrapper a:hover,
+.wrapper a:focus-visible {
+  text-decoration: none;
+}
+
 .wrapper h2,
 .wrapper h3,
 .wrapper h4,
 .wrapper h5,
 .wrapper h6 {
+  margin-top: 1.6em;
   font-family: var(--display-font);
   line-height: var(--line-height-tight);
   font-weight: 500;
+  color: #e0e0d0;
+}
+
+.wrapper h5,
+.wrapper h6 {
+  font-size: 1.1rem;
 }
 
 .wrapper h4 {
@@ -34,69 +89,15 @@
 }
 
 .wrapper h2 {
-  font-size: var(--font-size-3);
-}
-
-/**
- * blog post content ... little heavy because dealing with markdown => plain HTML
- * ---
- */
-.post {
-  line-height: var(--line-height-loose);
-}
-
-.post > * {
-  margin: 1.6rem 0;
-}
-
-.wrapper a,
-.post a {
-  color: #ffffef;
-  text-decoration: underline;
-}
-
-.wrapper a:hover,
-.wrapper a:focus-visible,
-.post a:hover,
-.post a:focus-visible {
-  text-decoration: none;
-}
-
-.post h2,
-.post h3,
-.post h4,
-.post h5,
-.post h6 {
-  margin-top: 1.6em;
-  font-family: var(--display-font);
-  line-height: var(--line-height-tight);
-  font-weight: 500;
-  color: #e0e0d0;
-}
-
-.post h5,
-.post h6 {
-  font-size: 1.1rem;
-}
-
-.post h4 {
-  font-size: var(--font-size-2);
-}
-
-.post h3 {
-  font-size: var(--font-size-3);
-}
-
-.post h2 {
   font-size: var(--font-size-4);
 }
 
-.post sup {
+.wrapper sup {
   font-size: 0.64rem;
   vertical-align: super;
 }
 
-.post blockquote {
+.wrapper blockquote {
   position: relative;
   overflow: hidden;
   padding: 4px 0 4px 24px;
@@ -106,7 +107,7 @@
   z-index: 0;
 }
 
-.post blockquote::before {
+.wrapper blockquote::before {
   content: '\201C';
   line-height: 1;
   font-size: var(--font-size-9);

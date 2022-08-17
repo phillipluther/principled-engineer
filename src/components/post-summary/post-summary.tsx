@@ -49,7 +49,8 @@ const PostSummary = ({
   return (
     <Content
       as="article"
-      className={classnames(padded, textified, styles.wrapper, className)}
+      className={classnames(padded, styles.wrapper, className)}
+      compact
     >
       <header>
         {coverImage ? (

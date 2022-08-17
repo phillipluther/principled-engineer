@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Link, graphql } from 'gatsby';
-// import Prismjs from 'prismjs';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
 import ContentHeader from '../components/content-header';
@@ -14,10 +13,10 @@ const NotFoundPage = ({ data, location }) => {
   const posts = data.allMarkdownRemark.nodes;
 
   return (
-    <Layout location={location} title={pageTitle}>
+    <Layout location={location}>
       <ContentHeader title={pageTitle} description={pageDescription} />
-      <Content as="section">
-        <h2>To Get Back on Track</h2>
+      <Content>
+        <h2>Back on Track</h2>
         <p>
           <code className="language-js">{`if (isUrlOk || needsRefresh) {`}</code>
         </p>
@@ -55,14 +54,16 @@ const NotFoundPage = ({ data, location }) => {
           <Link to="/contact">contact</Link> me and lemme know so I can fix it.
         </p>
         <p>
-          <code className="language-js">}</code>
+          <code className="language-js">{'}'}</code>
         </p>
       </Content>
     </Layout>
   );
 };
 
-export const Head = () => <Seo title={pageTitle} />;
+export const Head = () => (
+  <Seo title={pageTitle} description={pageDescription} />
+);
 
 export default NotFoundPage;
 
@@ -70,7 +71,7 @@ export const pageQuery = graphql`
   query {
     allMarkdownRemark(
       limit: 1
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { fields: [frontmatter___published], order: DESC }
     ) {
       nodes {
         excerpt

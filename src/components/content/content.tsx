@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import * as styles from './content.module.css';
 
 export type ContentProps = {
-  isBlogPost?: boolean;
+  compact?: boolean;
   className?: string;
   children?: React.ReactNode;
   as?: keyof JSX.IntrinsicElements;
@@ -13,7 +13,7 @@ export type ContentProps = {
 
 const Content = ({
   children,
-  isBlogPost = false,
+  compact: isCompact = false,
   className,
   as: Tag = 'section',
   ...props
@@ -21,7 +21,7 @@ const Content = ({
   return (
     <Tag
       className={classnames(
-        { [styles.post]: isBlogPost, [styles.wrapper]: !isBlogPost },
+        { [styles.compact]: isCompact, [styles.wrapper]: !isCompact },
         className
       )}
       {...props}

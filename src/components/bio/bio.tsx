@@ -34,8 +34,8 @@ const Bio = () => (
 
     <p>
       Blog-irrelevant areas of current interest include sci-fi/fantasy across
-      most mediums, micro-optimizing my living space, and trying to reconcile my
-      love of strong drink with a desire to live a yogic lifestyle.
+      most mediums, micro-optimizing my living space, and constantly fluctuating
+      on whether I'm a mountain person or an ocean person.
     </p>
 
     <p className={styles.finePrint}>

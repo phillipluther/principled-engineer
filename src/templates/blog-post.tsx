@@ -30,7 +30,6 @@ const BlogPostTemplate = ({
         />
 
         <Content
-          isBlogPost={true}
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
         />
