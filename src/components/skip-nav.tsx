@@ -10,7 +10,7 @@ const SkipNavLink = ({
   id?: string;
   label: string;
 }) => (
-  <VisuallyHidden id={id} isFocusable>
+  <VisuallyHidden id={id} isFocusable elementType="a">
     {label}
   </VisuallyHidden>
 );

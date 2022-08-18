@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import React, { useRef, useState } from 'react';
 import { VisuallyHidden } from 'react-aria';
+import { IoMenu } from 'react-icons/io5';
 
 import Tagline from '../../images/code-good-code-well.inline.svg';
 import Logo from '../../images/principled-engineer-logo.inline.svg';
@@ -10,15 +11,22 @@ import { contained, iconButton, padded } from '../../style-utils.module.css';
 import Drawer from '../drawer';
 import Flourish from '../flourish';
 import PrimaryNav from '../primary-nav';
-import { SkipNavLink } from '../skip-nav';
 import SocialMenu from '../social-menu';
 import * as styles from './header.module.css';
 
 const NavTitle = () => (
-  <span className={styles.navTitle}>
+  <span
+    className={classnames(
+      'flex',
+      'w-[220px]',
+      '-ml-3.5',
+      'leading-tight',
+      'align-middle'
+    )}
+  >
     <StaticImage
       as="span"
-      className={styles.badge}
+      className="opacity-70"
       layout="fixed"
       formats={['auto', 'webp', 'avif']}
       src="../../images/principled-engineer-icon.png"
@@ -37,25 +45,43 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className={classnames(padded, contained, styles.header)}>
-      <SkipNavLink label="Skip to Content" />
-      <h1 className={styles.title}>
+    <header
+      className={classnames(
+        'relative',
+        'bg-global-header',
+        'p-4',
+        'w-[540px]',
+        'mx-auto'
+      )}
+    >
+      <h1 className="inline-block">
         <Link to="/">
-          <Logo className={styles.logo} alt="" aria-hidden />
-          <VisuallyHidden>The Principled Engineer</VisuallyHidden>
+          <Logo className="w-[235px] h-auto" alt="" aria-hidden />
+          <VisuallyHidden elementType="span">
+            The Principled Engineer
+          </VisuallyHidden>
         </Link>
       </h1>
 
-      <Tagline className={styles.subhead} alt="" aria-hidden />
+      <Tagline className="relative bottom-4 left-[78px]" alt="" aria-hidden />
       <VisuallyHidden elementType="p">Code good. Code well.</VisuallyHidden>
 
       <button
         type="button"
-        className={classnames(iconButton, styles.menuButton)}
+        className={classnames(
+          'icon-button',
+          'shadow-md',
+          'bg-brando-700',
+          'absolute',
+          'top-1/2',
+          'right-6',
+          '-mt-[28px]',
+          'text-[36px]'
+        )}
         ref={buttonRef}
         onClick={() => setIsMenuOpen(true)}
       >
-        <span className={styles.hamburger} role="presentation" />
+        <IoMenu className="stroke-brando-200 mx-auto" />
         <VisuallyHidden>Show Navigation</VisuallyHidden>
       </button>
       <Drawer

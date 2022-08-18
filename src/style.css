@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .icon-button {
+    display: block;
+    width: theme('spacing.14');
+    height: theme('spacing.14');
+    border-radius: theme('borderRadius.sm');
+    border: 0;
+  }
+  /* ... */
+}
+
 :root {
   --display-font: 'Lora', serif;
   --text-font: 'Merriweather', serif;
