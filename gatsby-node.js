@@ -1,6 +1,5 @@
 const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
-const FilterWarningsPlugin = require('webpack-filter-warnings-plugin');
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
@@ -108,19 +107,4 @@ exports.createSchemaCustomization = ({ actions }) => {
       slug: String
     }
   `);
-};
-
-/**
- * TODO: fix this conflicting order nonsense for real, maybe,
- * but for now it's not causing any problems
- */
-exports.onCreateWebpackConfig = ({ actions }) => {
-  actions.setWebpackConfig({
-    plugins: [
-      new FilterWarningsPlugin({
-        exclude:
-          /mini-css-extract-plugin[^]*Conflicting order. Following module has been added:/,
-      }),
-    ],
-  });
 };
