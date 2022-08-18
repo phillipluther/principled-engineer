@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --display-font: 'Lora', serif;
   --text-font: 'Merriweather', serif;

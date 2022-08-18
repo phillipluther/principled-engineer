@@ -7,6 +7,7 @@ module.exports = {
     siteUrl: 'https://principled.engineer',
   },
   plugins: [
+    'gatsby-plugin-postcss',
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
