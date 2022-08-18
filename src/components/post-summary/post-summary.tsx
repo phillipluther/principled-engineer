@@ -9,7 +9,7 @@ import {
 import React from 'react';
 import { VisuallyHidden } from 'react-aria';
 
-import { displayFont, padded, textified } from '../../style-utils.module.css';
+import { displayFont, padded } from '../../style-utils.module.css';
 import Content from '../content';
 import * as styles from './post-summary.module.css';
 

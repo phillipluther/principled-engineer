@@ -75,6 +75,7 @@ export const Head = ({ data: { markdownRemark: post } }) => {
     <Seo
       title={post.frontmatter.title}
       description={post.frontmatter.summary || post.excerpt}
+      socialImage={post.frontmatter.cover}
     />
   );
 };
@@ -102,7 +103,7 @@ export const pageQuery = graphql`
         summary
         cover {
           childImageSharp {
-            gatsbyImageData(width: 720)
+            gatsbyImageData(width: 1200)
           }
         }
         cover_alt
@@ -128,18 +129,3 @@ export const pageQuery = graphql`
     }
   }
 `;
-
-// id: string;
-// markdown: string;
-// title: string;
-// author: string;
-// slug: string;
-// summary?: string;
-// published: string;
-// tags?: string[];
-// keywords?: string[];
-// series?: string;
-// cover?: IGatsbyImageData;
-// cover_credit?: string;
-// cover_credit_link?: string;
-// cover_alt?: string;

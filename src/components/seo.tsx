@@ -1,13 +1,20 @@
 import { graphql, useStaticQuery } from 'gatsby';
+import {
+  GatsbyImage,
+  IGatsbyImageData,
+  StaticImage,
+  getSrc,
+} from 'gatsby-plugin-image';
 import * as React from 'react';
 
 export type SeoProps = {
   title: string;
   description?: string;
   children?: React.ReactNode;
+  socialImage?: IGatsbyImageData;
 };
 
-const Seo = ({ description, title, children }: SeoProps) => {
+const Seo = ({ description, title, children, socialImage }: SeoProps) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -15,6 +22,7 @@ const Seo = ({ description, title, children }: SeoProps) => {
           siteMetadata {
             title
             description
+            siteUrl
           }
         }
       }
@@ -23,6 +31,11 @@ const Seo = ({ description, title, children }: SeoProps) => {
 
   const metaDescription = description || site.siteMetadata.description;
   const defaultTitle = site.siteMetadata?.title;
+  const srcImage = socialImage ? getSrc(socialImage) : null;
+  const imageUrl = site.siteMetadata?.siteUrl + srcImage || null;
+
+  const defaultSocialImageUrl =
+    site.siteMetadata?.siteUrl + '/images/social-card.jpg';
 
   return (
     <>
@@ -31,13 +44,20 @@ const Seo = ({ description, title, children }: SeoProps) => {
       <meta property="og:title" content={title} />
       <meta property="og:description" content={metaDescription} />
       <meta property="og:type" content="website" />
+      {imageUrl && <meta name="og:image" content={imageUrl} />}
+
       <meta name="twitter:card" content="summary" />
-      <meta
-        name="twitter:creator"
-        content={site.siteMetadata?.social?.twitter || ``}
-      />
+      <meta name="twitter:creator" content="principledeng" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={metaDescription} />
+      {imageUrl && <meta name="twitter:image" content={imageUrl} />}
+
+      {!imageUrl && (
+        <>
+          <meta name="og:image" content={defaultSocialImageUrl} />
+          <meta name="twitter:image" content={defaultSocialImageUrl} />
+        </>
+      )}
       {children}
     </>
   );

@@ -2,7 +2,8 @@ import classnames from 'classnames';
 import React from 'react';
 import { VisuallyHidden } from 'react-aria';
 
-import { contained, padded, textified } from '../../style-utils.module.css';
+import { contained, padded } from '../../style-utils.module.css';
+import Content from '../content';
 import PrimaryNav from '../primary-nav';
 import SocialMenu from '../social-menu';
 import * as styles from './footer.module.css';
@@ -23,7 +24,7 @@ const Footer = () => (
       <SocialMenu />
     </section>
 
-    <section className={classnames(textified, padded, styles.legal)}>
+    <Content className={classnames(padded, styles.legal)}>
       <VisuallyHidden elementType="h3">
         Legal Information and Disclaimers
       </VisuallyHidden>
@@ -36,7 +37,7 @@ const Footer = () => (
         Luther, and do not necessarily reflect the views or opinions of any
         associated organizations or corporate entities.
       </p>
-    </section>
+    </Content>
   </footer>
 );
 
