@@ -5,14 +5,12 @@ import React, { useRef, useState } from 'react';
 import { VisuallyHidden } from 'react-aria';
 import { IoMenu } from 'react-icons/io5';
 
-import Tagline from '../../images/code-good-code-well.inline.svg';
-import Logo from '../../images/principled-engineer-logo.inline.svg';
-import { contained, iconButton, padded } from '../../style-utils.module.css';
-import Drawer from '../drawer';
-import Flourish from '../flourish';
-import PrimaryNav from '../primary-nav';
-import SocialMenu from '../social-menu';
-import * as styles from './header.module.css';
+import Tagline from '../images/code-good-code-well.inline.svg';
+import Logo from '../images/principled-engineer-logo.inline.svg';
+import Drawer from './drawer';
+import Flourish from './flourish';
+import PrimaryNav from './primary-nav';
+import SocialMenu from './social-menu';
 
 const NavTitle = () => (
   <span
@@ -89,20 +87,20 @@ const Header = () => {
         isOpen={isMenuOpen}
         onClose={() => setIsMenuOpen(false)}
       >
-        <nav className={styles.navWrapper}>
-          <Flourish variant="bloom" size="xs" className={styles.flourish} />
+        <nav className="flex flex-wrap align-middle justify-center py-6">
+          <Flourish variant="bloom" size="xs" className="opacity-30 mb-4" />
           <PrimaryNav
-            className={styles.nav}
+            className="[&>li]:w-full"
             onClick={() => setIsMenuOpen(false)}
           />
           <Flourish
             variant="bloom"
             size="xs"
-            className={classnames(styles.flourish)}
+            className="opacity-30 mt-4"
             flipped
           />
 
-          <SocialMenu className={styles.social} />
+          <SocialMenu className="pt-3" />
         </nav>
       </Drawer>
     </header>
