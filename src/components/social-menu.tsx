@@ -2,8 +2,7 @@ import classnames from 'classnames';
 import React from 'react';
 import { BsEnvelopeFill, BsRssFill, BsTwitter } from 'react-icons/bs';
 
-import { PrimaryNavItemProps } from '../primary-nav';
-import * as styles from './social-menu.module.css';
+import { PrimaryNavItemProps } from './primary-nav';
 
 export type SocialMenuItemProps = PrimaryNavItemProps & {
   icon: React.FC;
@@ -28,10 +27,14 @@ export const socialItems: SocialMenuItemProps[] = [
 ];
 
 const SocialMenu = ({ className, ...props }: SocialMenuProps) => (
-  <ul className={classnames(styles.wrapper, className)} {...props}>
+  <ul className={classnames('flex', 'text-2xl', className)} {...props}>
     {socialItems.map(({ label, href, icon: Icon }) => (
-      <li className={styles.item} key={href}>
-        <a href={href} title={label} className={styles.link}>
+      <li className="" key={href}>
+        <a
+          href={href}
+          title={label}
+          className="icon-button flex items-center justify-center"
+        >
           <Icon aria-label={label} />
         </a>
       </li>

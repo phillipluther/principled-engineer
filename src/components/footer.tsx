@@ -1,30 +1,27 @@
-import classnames from 'classnames';
 import React from 'react';
 import { VisuallyHidden } from 'react-aria';
 
-import { contained, padded } from '../../style-utils.module.css';
-import Content from '../content';
-import PrimaryNav from '../primary-nav';
-import SocialMenu from '../social-menu';
-import * as styles from './footer.module.css';
+import Content from './content';
+import PrimaryNav from './primary-nav';
+import SocialMenu from './social-menu';
 
 const Footer = () => (
-  <footer className={classnames(padded, contained, styles.footer)}>
+  <footer className="p-4 w-[540px] mx-auto bg-[url('/images/texture-tile.png')] color-brando-700 text-sm mt-8 pt-8 border-t-2 border-brando-200">
     <VisuallyHidden elementType="h2">Site Footer</VisuallyHidden>
 
-    <section className={classnames(styles.centered, styles.nav)}>
+    <section className="flex justify-center">
       <VisuallyHidden elementType="h3">Supplemental Navigation</VisuallyHidden>
       <nav>
         <PrimaryNav />
       </nav>
     </section>
 
-    <section className={classnames(styles.centered)}>
+    <section className="flex justify-center">
       <VisuallyHidden elementType="h3">Never Miss a Post!</VisuallyHidden>
       <SocialMenu />
     </section>
 
-    <Content className={classnames(padded, styles.legal)}>
+    <Content className="p-4 text-brando-600">
       <VisuallyHidden elementType="h3">
         Legal Information and Disclaimers
       </VisuallyHidden>

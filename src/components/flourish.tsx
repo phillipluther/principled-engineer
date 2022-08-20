@@ -1,9 +1,8 @@
 import classnames from 'classnames';
 import React from 'react';
 
-import Bloom from '../../images/flourish-bloom.inline.svg';
-import Wheel from '../../images/flourish-wheel.inline.svg';
-import * as styles from './flourish.module.css';
+import Bloom from '../images/flourish-bloom.inline.svg';
+import Wheel from '../images/flourish-wheel.inline.svg';
 
 export const flourishes = {
   bloom: {
@@ -19,39 +18,24 @@ export const flourishes = {
 };
 
 export type FlourishProps = {
-  size?: 'xs' | 'sm' | 'md' | 'lg';
   variant?: 'bloom' | 'wheel';
   className?: string;
   flipped?: boolean;
 };
 
-const widthsBySize = {
-  xs: 160,
-  sm: 240,
-  md: 560,
-  lg: 800,
-};
-
 const Flourish = ({
   variant = 'wheel',
-  size = 'md',
   className,
   flipped = false,
 }: FlourishProps) => {
-  const {
-    component: Component,
-    width: nativeWidth,
-    height: nativeHeight,
-  } = flourishes[variant];
-  const width = widthsBySize[size];
-  const height = (nativeHeight * width) / nativeWidth;
+  const { component: Component } = flourishes[variant];
 
   return (
     <div
       className={classnames(
-        { [styles.flipped]: flipped },
-        styles.wrapper,
-        styles[size],
+        { 'rotate-180': flipped },
+        'mx-auto',
+        'opacity-50',
         className
       )}
     >

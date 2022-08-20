@@ -88,17 +88,12 @@ const Header = () => {
         onClose={() => setIsMenuOpen(false)}
       >
         <nav className="flex flex-wrap align-middle justify-center py-6">
-          <Flourish variant="bloom" size="xs" className="opacity-30 mb-4" />
+          <Flourish variant="bloom" className="opacity-30 mb-4" />
           <PrimaryNav
             className="[&>li]:w-full"
             onClick={() => setIsMenuOpen(false)}
           />
-          <Flourish
-            variant="bloom"
-            size="xs"
-            className="opacity-30 mt-4"
-            flipped
-          />
+          <Flourish variant="bloom" className="opacity-30 mt-4" flipped />
 
           <SocialMenu className="pt-3" />
         </nav>

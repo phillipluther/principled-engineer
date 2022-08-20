@@ -2,8 +2,6 @@ import classnames from 'classnames';
 import { Link } from 'gatsby';
 import React from 'react';
 
-import * as styles from './primary-nav.module.css';
-
 export type PrimaryNavProps = {
   showHome?: boolean;
   className?: string;
@@ -35,11 +33,14 @@ const PrimaryNav = ({
   className,
   ...props
 }: PrimaryNavProps) => (
-  <ul className={classnames(styles.wrapper, className)} {...props}>
+  <ul className={classnames('flex', 'flex-wrap', className)} {...props}>
     {primaryNavItems.map(({ label, href }) =>
       !showHome && href === '/' ? null : (
-        <li className={styles.item} key={href}>
-          <Link to={href} className={styles.link}>
+        <li
+          className="flex justify-center align-middle relative px-2"
+          key={href}
+        >
+          <Link to={href} className="text-lg w-full text-center leading-[48px]">
             {label}
           </Link>
         </li>
