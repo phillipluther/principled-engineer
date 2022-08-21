@@ -2,8 +2,7 @@ import classnames from 'classnames';
 import { GatsbyImage, IGatsbyImageData, getImage } from 'gatsby-plugin-image';
 import React from 'react';
 
-import Flourish from '../flourish';
-import * as styles from './content-header.module.css';
+import Flourish from './flourish';
 
 export type ContentHeaderProps = {
   as?: keyof JSX.IntrinsicElements;
@@ -32,37 +31,39 @@ const ContentHeader = ({
   const coverImage = image?.src ? getImage(image.src) : null;
 
   return (
-    <Tag className={styles.wrapper} {...props}>
-      <Flourish className={styles.flourish} />
+    <Tag className="text-center" {...props}>
+      <Flourish className="my-8" />
 
-      <Heading className={classnames(styles.title)}>{title}</Heading>
+      <Heading className="font-display font-medium text-brando-800 text-5xl leading-[1.15] drop-shadow-text-offset">
+        {title}
+      </Heading>
 
-      {published && <p className={styles.date}>{published}</p>}
+      {published && <p className="text-brando-600 my-[2rem]">{published}</p>}
 
       {description && (
         <>
-          <Flourish className={classnames(styles.flourish)} flipped />
-          <p className={styles.description}>{description}</p>
+          <Flourish className="my-8" flipped />
+          <p className="text-2xl italic my-8 leading-relaxed">{description}</p>
         </>
       )}
 
-      {!description && (
-        <Flourish className={classnames(styles.flourish)} flipped />
-      )}
+      {!description && <Flourish className="my-8" flipped />}
 
       {coverImage && (
-        <figure className={styles.image}>
+        <figure className="-ml-4 -mr-4">
           <GatsbyImage
             image={coverImage}
             alt={image?.alt || title?.toString() || 'The Principled Engineer'}
           />
 
           {image?.credit && (
-            <figcaption className={styles.credit}>
+            <figcaption className="text-left ml-4 mt-2 mb-8 text-sm italic text-brando-500">
               <>
                 Cover image by{` `}
                 {image.creditLink ? (
-                  <a href={image.creditLink}>{image.credit}</a>
+                  <a href={image.creditLink} className="text-brando-600">
+                    {image.credit}
+                  </a>
                 ) : (
                   <span>{image.credit}</span>
                 )}

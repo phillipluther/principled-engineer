@@ -14,17 +14,58 @@ module.exports = {
         'global-header': `${textureBg}, linear-gradient(to bottom right, #c2c2b2, #e0e0d0, #a3a393)`,
         texture: textureBg,
       },
+      dropShadow: ({ theme }) => ({
+        'text-offset': `2px 1px 0px ${theme('colors.brando.400')}`,
+      }),
+      typography: ({ theme }) => {
+        return {
+          DEFAULT: {
+            css: {
+              blockquote: {
+                position: 'relative',
+                overflow: 'hidden',
+                fontSize: '1.25rem',
+                color: theme('colors.brando.600'),
+                fontStyle: 'italic',
+                zIndex: 0,
+              },
+            },
+          },
+          brando: {
+            css: {
+              '--tw-prose-body': theme('colors.brando.700'),
+              '--tw-prose-headings': theme('colors.brando.800'),
+              '--tw-prose-lead': theme('colors.brando.700'),
+              '--tw-prose-links': theme('colors.brando.900'),
+              '--tw-prose-bold': theme('colors.brando.700'),
+              '--tw-prose-counters': theme('colors.brando.600'),
+              '--tw-prose-bullets': theme('colors.brando.400'),
+              '--tw-prose-hr': theme('colors.brando.300'),
+              '--tw-prose-quotes': theme('colors.brando.700'),
+              '--tw-prose-quote-borders': theme('colors.brando.300'),
+              '--tw-prose-captions': theme('colors.brando.700'),
+              '--tw-prose-code': theme('colors.brando.700'),
+              '--tw-prose-pre-code': theme('colors.brando.100'),
+              '--tw-prose-pre-bg': theme('colors.brando.900'),
+              '--tw-prose-th-borders': theme('colors.brando.300'),
+              '--tw-prose-td-borders': theme('colors.brando.200'),
+            },
+          },
+        };
+      },
     },
     colors: {
-      'brando-100': '#0a0a00',
-      'brando-200': '#292919',
-      'brando-300': '#474737',
-      'brando-400': '#666656',
-      'brando-500': '#858575',
-      'brando-600': '#a2a292',
-      'brando-700': '#c2c2b2',
-      'brando-800': '#e0e0d0',
-      'brando-900': '#ffffef',
+      brando: {
+        100: '#0a0a00',
+        200: '#292919',
+        300: '#474737',
+        400: '#666656',
+        500: '#858575',
+        600: '#a2a292',
+        700: '#c2c2b2',
+        800: '#e0e0d0',
+        900: '#ffffef',
+      },
     },
     spacing: {
       0.5: '2px',
@@ -53,5 +94,5 @@ module.exports = {
       text: ['Merriweather', 'serif'],
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 };

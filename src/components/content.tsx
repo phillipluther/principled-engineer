@@ -1,8 +1,6 @@
 import classnames from 'classnames';
 import React from 'react';
 
-import * as styles from './content.module.css';
-
 export type ContentProps = {
   compact?: boolean;
   className?: string;
@@ -21,7 +19,9 @@ const Content = ({
   return (
     <Tag
       className={classnames(
-        { [styles.compact]: isCompact, [styles.wrapper]: !isCompact },
+        'prose prose-headings:font-display prose-headings:font-medium',
+        { 'prose-lg': !isCompact, 'prose-base': isCompact },
+        'prose-brando',
         className
       )}
       {...props}

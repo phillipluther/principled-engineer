@@ -9,9 +9,7 @@ import {
 import React from 'react';
 import { VisuallyHidden } from 'react-aria';
 
-import { displayFont, padded } from '../../style-utils.module.css';
-import Content from '../content';
-import * as styles from './post-summary.module.css';
+import Content from './content';
 
 export type PostProps = {
   id: string;
@@ -49,39 +47,44 @@ const PostSummary = ({
   return (
     <Content
       as="article"
-      className={classnames(padded, styles.wrapper, className)}
+      className={classnames(
+        'relative',
+        'prose prose-brando',
+        'p-4',
+        'bg-brando-200',
+        className
+      )}
       compact
     >
       <header>
-        {coverImage ? (
-          <GatsbyImage
-            image={coverImage}
-            alt=""
-            aria-hidden
-            className={styles.image}
-          />
-        ) : (
-          <StaticImage
-            src="../../images/social-card.jpg"
-            width={720}
-            height={405}
-            alt=""
-            aria-hidden
-            className={styles.image}
-          />
-        )}
+        <Link to={slug} tabIndex={-1} aria-hidden>
+          {coverImage ? (
+            <GatsbyImage
+              image={coverImage}
+              alt=""
+              className="-ml-4 -mt-4 -mr-4"
+            />
+          ) : (
+            <StaticImage
+              src="../../images/social-card.jpg"
+              width={720}
+              height={405}
+              alt=""
+              className="-ml-4 -mt-4 -mr-4"
+            />
+          )}
+        </Link>
 
-        <Heading className={classnames(displayFont, styles.title)}>
-          <Link to={slug}>{title}</Link>
+        <Heading className="!mt-4 text-3xl">
+          <Link to={slug} className="no-underline focus:underline">
+            {title}
+          </Link>
         </Heading>
         <p>{published}</p>
       </header>
 
       <section>
         <p>{summary}</p>
-        <Link to={slug} className={styles.link} tabIndex={-1}>
-          <VisuallyHidden>Read More: {title}</VisuallyHidden>
-        </Link>
       </section>
     </Content>
   );

@@ -1,15 +1,15 @@
-import classnames from 'classnames';
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
-import { displayFont, padded } from '../../style-utils.module.css';
-import Content from '../content';
-import * as styles from './bio.module.css';
+import Content from './content';
 
 const Bio = () => (
-  <Content as="aside" className={classnames(padded, styles.wrapper)}>
-    <h2 className={classnames(styles.title)}>About the Author</h2>
-    <div className={styles.image}>
+  <Content
+    as="aside"
+    className="p-4 mt-12 border-t-2 border-brando-300 bg-gradient-to-br from-brando-200 to-brando-100"
+  >
+    <h2 className="mt-0">About the Author</h2>
+    <div className="ml-6 mb-4 mt-0 float-right">
       <StaticImage
         src="../../images/portrait-avatar.jpg"
         width={112}
@@ -38,7 +38,7 @@ const Bio = () => (
       on whether I'm a mountain person or an ocean person.
     </p>
 
-    <p className={styles.finePrint}>
+    <p className="text-sm text-brando-600">
       <sup>*</sup> I'm just over 40. Accounting for childhood and teenage
       buffoonery I'll translate "life long" to 20'ish years. Throwing that out
       for clarity.
