@@ -17,9 +17,9 @@ const NavTitle = () => (
     className={classnames(
       'flex',
       'w-[220px]',
-      '-ml-3.5',
+      '-ml-2',
       'leading-tight',
-      'align-middle'
+      'items-center'
     )}
   >
     <StaticImage
@@ -27,7 +27,7 @@ const NavTitle = () => (
       className="opacity-70"
       layout="fixed"
       formats={['auto', 'webp', 'avif']}
-      src="../../images/principled-engineer-icon.png"
+      src="../images/principled-engineer-icon.png"
       width={48}
       height={48}
       quality={70}
@@ -66,7 +66,7 @@ const Header = () => {
 
       <button
         type="button"
-        className={classnames(
+        className={[
           'icon-button',
           'shadow-md',
           'bg-brando-700',
@@ -74,8 +74,8 @@ const Header = () => {
           'top-1/2',
           'right-6',
           '-mt-[28px]',
-          'text-[36px]'
-        )}
+          'text-[36px]',
+        ].join(' ')}
         ref={buttonRef}
         onClick={() => setIsMenuOpen(true)}
       >
@@ -90,12 +90,12 @@ const Header = () => {
         <nav className="flex flex-wrap align-middle justify-center py-6">
           <Flourish variant="bloom" className="opacity-30 mb-4" />
           <PrimaryNav
-            className="[&>li]:w-full"
+            className="w-full [&>li]:w-full"
             onClick={() => setIsMenuOpen(false)}
           />
           <Flourish variant="bloom" className="opacity-30 mt-4" flipped />
 
-          <SocialMenu className="pt-3" />
+          <SocialMenu className="pt-3 w-full justify-center" />
         </nav>
       </Drawer>
     </header>

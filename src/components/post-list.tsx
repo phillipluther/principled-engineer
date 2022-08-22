@@ -1,9 +1,7 @@
-import classnames from 'classnames';
 import React from 'react';
 
-import PostSummary from '../post-summary';
-import { PostProps } from '../post-summary';
-import * as styles from './post-list.module.css';
+import PostSummary from './post-summary';
+import type { PostProps } from './post-summary';
 
 export type PostListProps = {
   title: string;
@@ -12,11 +10,11 @@ export type PostListProps = {
 };
 
 const PostList = ({ postsData }: PostListProps) => (
-  <section className={classnames(styles.wrapper)}>
+  <section>
     <ul>
       {postsData.map((postData) => (
         <li key={postData.slug}>
-          <PostSummary className={styles.summary} {...postData} />
+          <PostSummary className="mb-8" {...postData} />
         </li>
       ))}
     </ul>

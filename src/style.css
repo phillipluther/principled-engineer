@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html,
+  body {
+    @apply text-brando-700;
+    @apply bg-brando-100;
+  }
+
+  body {
+    @apply font-text;
+  }
+}
+
 @layer components {
   .icon-button {
     display: block;
@@ -10,48 +22,4 @@
     border-radius: theme('borderRadius.sm');
     border: 0;
   }
-}
-
-:root {
-  --display-font: 'Lora', serif;
-  --text-font: 'Merriweather', serif;
-
-  --font-size-0: 0.8rem;
-  --font-size-1: 1rem;
-  --font-size-2: 1.25rem;
-  --font-size-3: 1.563rem;
-  --font-size-4: 1.953rem;
-  --font-size-5: 2.441rem;
-  --font-size-6: 3.052rem;
-  --font-size-7: 3.815rem;
-  --font-size-8: 4.768rem;
-  --font-size-9: 5.96rem;
-
-  --color-neutral-1: #0a0a00;
-  --color-neutral-2: #292919;
-  --color-neutral-3: #474737;
-  --color-neutral-4: #666656;
-  --color-neutral-5: #858575;
-  --color-neutral-6: #a3a393;
-  --color-neutral-7: #c2c2b2;
-  --color-neutral-8: #e0e0d0;
-  --color-neutral-9: #ffffef;
-
-  --line-height-tight: 1.25;
-  --line-height-mid: 1.6;
-  --line-height-loose: 1.75;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html,
-body {
-  background: #0a0a00;
-  color: #c2c2b2;
-}
-
-body {
-  font-family: var(--text-font);
 }

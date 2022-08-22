@@ -7,11 +7,12 @@ const Bio = () => (
   <Content
     as="aside"
     className="p-4 mt-12 border-t-2 border-brando-300 bg-gradient-to-br from-brando-200 to-brando-100"
+    compact
   >
     <h2 className="mt-0">About the Author</h2>
     <div className="ml-6 mb-4 mt-0 float-right">
       <StaticImage
-        src="../../images/portrait-avatar.jpg"
+        src="../images/portrait-avatar.jpg"
         width={112}
         height={112}
         alt="Phillip Luther, author and sole contributor to the Principled Engineer"

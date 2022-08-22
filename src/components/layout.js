@@ -1,7 +1,5 @@
-import classnames from 'classnames';
 import * as React from 'react';
 
-import { contained, padded } from '../style-utils.module.css';
 import Footer from './footer';
 import Header from './header';
 import { SkipNavTarget } from './skip-nav';
@@ -14,7 +12,7 @@ const Layout = ({ location, children }) => {
     <div className="global-wrapper" data-is-root-path={isRootPath}>
       <Header />
 
-      <main className={classnames(padded, contained)}>
+      <main className="p-4 mx-auto w-[540px]">
         <SkipNavTarget />
         {children}
       </main>
