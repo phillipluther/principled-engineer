@@ -21,19 +21,21 @@ export type FlourishProps = {
   variant?: 'bloom' | 'wheel';
   className?: string;
   flipped?: boolean;
+  onDark?: boolean;
 };
 
 const Flourish = ({
   variant = 'wheel',
   className,
   flipped = false,
+  onDark = false,
 }: FlourishProps) => {
   const { component: Component } = flourishes[variant];
 
   return (
     <div
       className={classnames(
-        { 'rotate-180': flipped },
+        { 'rotate-180': flipped, 'stroke-brando-100': onDark },
         'mx-auto',
         'opacity-50',
         className
