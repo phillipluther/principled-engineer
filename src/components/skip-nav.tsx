@@ -10,7 +10,12 @@ const SkipNavLink = ({
   id?: string;
   label: string;
 }) => (
-  <VisuallyHidden id={id} isFocusable elementType="a">
+  <VisuallyHidden
+    isFocusable
+    elementType="a"
+    href={`#${id}`}
+    className="absolute z-20 p-4 bg-brando-200"
+  >
     {label}
   </VisuallyHidden>
 );

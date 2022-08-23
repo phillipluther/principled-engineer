@@ -13,6 +13,7 @@ import Logo from '../images/principled-engineer-logo.inline.svg';
 import Drawer from './drawer';
 import Flourish from './flourish';
 import PrimaryNav from './primary-nav';
+import { SkipNavLink } from './skip-nav';
 import SocialMenu from './social-menu';
 
 const NavTitle = () => (
@@ -52,76 +53,71 @@ const Header = ({ className }: { className?: string }) => {
 
   return (
     <header
-      className={classnames('relative bg-global-header p-4 md:p-6', className)}
+      className={classnames('relative bg-global-header padded', className)}
     >
-      <h1 className="inline-block">
-        <Link to="/">
-          <Logo className="w-[235px] lg:w-full h-auto" alt="" aria-hidden />
-          <VisuallyHidden elementType="span">
-            The Principled Engineer
-          </VisuallyHidden>
-        </Link>
-      </h1>
+      {isLarge && <SkipNavLink label="Skip Navigation" />}
 
-      <Tagline
-        className="relative bottom-4 left-[78px] lg:static lg:my-2 lg:w-full"
-        alt=""
-        aria-hidden
-      />
-      <VisuallyHidden elementType="p">Code good. Code well.</VisuallyHidden>
+      <div className="max-w-screen-xl mx-auto flex justify-between items-center">
+        <h1 className="inline-block">
+          <Link to="/">
+            <Logo className="w-[200px] h-auto" alt="" aria-hidden />
+            <VisuallyHidden elementType="span">
+              The Principled Engineer
+            </VisuallyHidden>
+          </Link>
+          <Tagline
+            className="relative bottom-4 -mb-4 left-[78px]"
+            alt=""
+            aria-hidden
+          />
+          <VisuallyHidden elementType="p">Code good. Code well.</VisuallyHidden>
+        </h1>
 
-      {isLarge ? (
-        <>
-          <hr className="border-brando-500 w-full mt-8" />
-          <nav className="flex flex-wrap align-middle justify-center py-6">
-            <PrimaryNav
-              className="w-full [&>li]:w-full text-brando-200"
-              onClick={() => setIsMenuOpen(false)}
-            />
-
-            <hr className="border-brando-500 w-full mt-6 mb-4" />
-            <SocialMenu className="pt-3 w-full justify-center text-brando-300" />
-          </nav>
-        </>
-      ) : (
-        <>
-          <button
-            type="button"
-            className={[
-              'icon-button',
-              'shadow-md',
-              'bg-brando-700',
-              'absolute',
-              'top-1/2',
-              'right-6',
-              'md:right-8',
-              '-mt-[28px]',
-              'text-[36px]',
-            ].join(' ')}
-            ref={buttonRef}
-            onClick={() => setIsMenuOpen(true)}
-          >
-            <IoMenu className="stroke-brando-200 mx-auto" />
-            <VisuallyHidden>Show Navigation</VisuallyHidden>
-          </button>
-          <Drawer
-            title={<NavTitle />}
-            isOpen={isMenuOpen}
-            onClose={() => setIsMenuOpen(false)}
-          >
-            <nav className="flex flex-wrap align-middle justify-center py-6">
-              <Flourish variant="bloom" className="opacity-30 mb-4" />
+        {isLarge ? (
+          <>
+            <nav className="flex align-middle justify-end w-full">
               <PrimaryNav
-                className="w-full [&>li]:w-full"
+                className="text-brando-200 lg:flex-nowrap mr-12 lg:text-xl"
                 onClick={() => setIsMenuOpen(false)}
               />
-              <Flourish variant="bloom" className="opacity-30 mt-4" flipped />
-
-              <SocialMenu className="pt-3 w-full justify-center" />
+              <SocialMenu className="justify-center text-brando-200" />
             </nav>
-          </Drawer>
-        </>
-      )}
+          </>
+        ) : (
+          <>
+            <button
+              type="button"
+              className={[
+                'icon-button',
+                'shadow-md',
+                'bg-brando-700',
+                'text-[36px]',
+              ].join(' ')}
+              ref={buttonRef}
+              onClick={() => setIsMenuOpen(true)}
+            >
+              <IoMenu className="stroke-brando-200 mx-auto" />
+              <VisuallyHidden>Show Navigation</VisuallyHidden>
+            </button>
+            <Drawer
+              title={<NavTitle />}
+              isOpen={isMenuOpen}
+              onClose={() => setIsMenuOpen(false)}
+            >
+              <nav className="flex flex-wrap align-middle justify-center py-6">
+                <Flourish variant="bloom" className="opacity-30 mb-4" />
+                <PrimaryNav
+                  className="w-full [&>li]:w-full"
+                  onClick={() => setIsMenuOpen(false)}
+                />
+                <Flourish variant="bloom" className="opacity-30 mt-4" flipped />
+
+                <SocialMenu className="pt-3 w-full justify-center" />
+              </nav>
+            </Drawer>
+          </>
+        )}
+      </div>
     </header>
   );
 };

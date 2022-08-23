@@ -33,14 +33,17 @@ const PrimaryNav = ({
   className,
   ...props
 }: PrimaryNavProps) => (
-  <ul className={classnames('flex', 'flex-wrap', className)} {...props}>
+  <ul
+    className={classnames('flex', 'flex-wrap', 'text-lg', className)}
+    {...props}
+  >
     {primaryNavItems.map(({ label, href }) =>
       !showHome && href === '/' ? null : (
         <li
-          className="flex justify-center align-middle relative px-2"
+          className="flex justify-center items-center relative px-2 font-display"
           key={href}
         >
-          <Link to={href} className="text-lg w-full text-center leading-[48px]">
+          <Link to={href} className="w-full text-center leading-[48px]">
             {label}
           </Link>
         </li>
