@@ -41,16 +41,6 @@ const NavTitle = () => (
   </span>
 );
 
-const NavContent = ({ onClick, onDark }) => (
-  <nav className="flex flex-wrap align-middle justify-center py-6">
-    <Flourish variant="bloom" className="opacity-30 mb-4" />
-    <PrimaryNav className="w-full [&>li]:w-full" onClick={onClick} />
-    <Flourish variant="bloom" className="opacity-30 mt-4" flipped />
-
-    <SocialMenu className="pt-3 w-full justify-center" />
-  </nav>
-);
-
 const Header = ({ className }: { className?: string }) => {
   const buttonRef = useRef();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -62,7 +52,7 @@ const Header = ({ className }: { className?: string }) => {
 
   return (
     <header
-      className={classnames('relative bg-global-header p-4 lg:p-6', className)}
+      className={classnames('relative bg-global-header p-4 md:p-6', className)}
     >
       <h1 className="inline-block">
         <Link to="/">
@@ -85,7 +75,7 @@ const Header = ({ className }: { className?: string }) => {
           <hr className="border-brando-500 w-full mt-8" />
           <nav className="flex flex-wrap align-middle justify-center py-6">
             <PrimaryNav
-              className="w-full [&>li]:w-full text-brando-300"
+              className="w-full [&>li]:w-full text-brando-200"
               onClick={() => setIsMenuOpen(false)}
             />
 
@@ -104,6 +94,7 @@ const Header = ({ className }: { className?: string }) => {
               'absolute',
               'top-1/2',
               'right-6',
+              'md:right-8',
               '-mt-[28px]',
               'text-[36px]',
             ].join(' ')}

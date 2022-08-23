@@ -6,7 +6,7 @@ import Content from './content';
 const Bio = () => (
   <Content
     as="aside"
-    className="p-4 mt-12 border-t-2 border-brando-300 bg-gradient-to-br from-brando-200 to-brando-100"
+    className="p-4 mt-12 border-t-2 border-brando-300 bg-gradient-to-br from-brando-200 to-brando-100 md:p-6"
     compact
   >
     <h2 className="mt-0">About the Author</h2>

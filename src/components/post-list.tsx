@@ -10,7 +10,7 @@ export type PostListProps = {
 };
 
 const PostList = ({ postsData }: PostListProps) => (
-  <section>
+  <section className="w-full">
     <ul>
       {postsData.map((postData) => (
         <li key={postData.slug}>

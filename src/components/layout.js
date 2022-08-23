@@ -12,7 +12,7 @@ const Layout = ({ location, children }) => {
     <div className="lg:pl-[240px]" data-is-root-path={isRootPath}>
       <Header className="lg:fixed lg:fixed-left lg:h-screen lg:w-[240px]" />
 
-      <main className="p-4">
+      <main className="p-4 md:p-6">
         <SkipNavTarget />
         {children}
       </main>
