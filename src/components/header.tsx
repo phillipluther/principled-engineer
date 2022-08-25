@@ -52,12 +52,10 @@ const Header = ({ className }: { className?: string }) => {
   });
 
   return (
-    <header
-      className={classnames('relative bg-global-header padded', className)}
-    >
-      {isLarge && <SkipNavLink label="Skip Navigation" />}
+    <header className={classnames('relative bg-global-header', className)}>
+      {isLarge && <SkipNavLink label="Skip to Content" />}
 
-      <div className="max-w-screen-xl mx-auto flex justify-between items-center">
+      <div className="max-w-screen-xl mx-auto flex justify-between items-center padded">
         <h1 className="inline-block">
           <Link to="/">
             <Logo className="w-[200px] h-auto" alt="" aria-hidden />

@@ -12,10 +12,11 @@ const Layout = ({ location, children }) => {
     <div data-is-root-path={isRootPath}>
       <Header />
 
-      <main className="padded">
+      <main className="padded max-w-screen-xl mx-auto">
         <SkipNavTarget />
         {children}
       </main>
+
       <Footer />
     </div>
   );

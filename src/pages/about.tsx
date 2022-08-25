@@ -12,7 +12,7 @@ const pageDescription =
 const AboutPage = ({ location }) => (
   <Layout location={location}>
     <ContentHeader title={pageTitle} description={pageDescription} />
-    <Content as="section">
+    <Content as="section" className="mx-auto">
       <h2>About the Blog</h2>
 
       <p>

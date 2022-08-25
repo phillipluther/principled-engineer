@@ -6,7 +6,7 @@ import PrimaryNav from './primary-nav';
 import SocialMenu from './social-menu';
 
 const Footer = () => (
-  <footer className="p-4 bg-texture color-brando-700 text-sm mt-8 pt-8 border-t-2 border-brando-200 md:p-6 lg:bg-none">
+  <footer className="p-4 bg-texture color-brando-700 text-sm mt-8 pt-8 border-t-2 border-brando-200 md:p-6 lg:bg-none max-w-screen-xl mx-auto">
     <VisuallyHidden elementType="h2">Site Footer</VisuallyHidden>
 
     <section className="flex justify-center md:justify-start md:px-4">

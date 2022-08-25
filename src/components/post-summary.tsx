@@ -54,6 +54,7 @@ const PostSummary = ({
         'md:p-6',
         'bg-brando-200',
         'md:w-1/2',
+        'xl:w-1/3',
         className
       )}
       compact

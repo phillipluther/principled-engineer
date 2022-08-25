@@ -33,10 +33,11 @@ const BlogPostTemplate = ({
         <Content
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
+          className="mx-auto"
         />
 
         <footer className="md:px-6">
-          <Bio />
+          <Bio className="mx-auto" />
         </footer>
       </article>
 
