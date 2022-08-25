@@ -1,4 +1,3 @@
-import classnames from 'classnames';
 import { GatsbyImage, IGatsbyImageData, getImage } from 'gatsby-plugin-image';
 import React from 'react';
 
@@ -32,9 +31,9 @@ const ContentHeader = ({
 
   return (
     <Tag className="text-center" {...props}>
-      <Flourish className="my-8" />
+      <Flourish className="my-8 max-w-md" />
 
-      <Heading className="font-display font-medium text-brando-800 text-5xl leading-[1.15] drop-shadow-text-offset">
+      <Heading className="font-display font-medium text-brando-800 text-5xl leading-[1.15] drop-shadow-text-offset md:text-7xl md:leading-tight">
         {title}
       </Heading>
 
@@ -42,15 +41,17 @@ const ContentHeader = ({
 
       {description && (
         <>
-          <Flourish className="my-8" flipped />
-          <p className="text-2xl italic my-8 leading-relaxed">{description}</p>
+          <Flourish className="my-8 max-w-md" flipped />
+          <p className="text-2xl italic my-8 leading-relaxed md:max-w-xl md:mx-auto">
+            {description}
+          </p>
         </>
       )}
 
-      {!description && <Flourish className="my-8" flipped />}
+      {!description && <Flourish className="my-8 max-w-md" flipped />}
 
       {coverImage && (
-        <figure className="-ml-4 -mr-4">
+        <figure className="-ml-4 -mr-4 md:-ml-6 md:-mr-6 md:mt-12">
           <GatsbyImage
             image={coverImage}
             alt={image?.alt || title?.toString() || 'The Principled Engineer'}

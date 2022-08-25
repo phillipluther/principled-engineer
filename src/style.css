@@ -33,4 +33,10 @@
     top: 0;
     height: 100vh;
   }
+
+  .padded {
+    @apply p-4;
+    @apply md:p-6;
+    @apply lg:p-8;
+  }
 }

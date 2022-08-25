@@ -20,7 +20,11 @@ const Content = ({
     <Tag
       className={classnames(
         'prose prose-headings:font-display prose-headings:font-medium',
-        { 'prose-lg': !isCompact, 'prose-base': isCompact },
+        {
+          'prose-lg': !isCompact,
+          'md:p-6': !isCompact,
+          'prose-base': isCompact,
+        },
         'prose-brando',
         className
       )}

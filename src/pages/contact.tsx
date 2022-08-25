@@ -12,7 +12,7 @@ const pageDescription =
 const ContactPage = ({ location }) => (
   <Layout location={location}>
     <ContentHeader title={pageTitle} description={pageDescription} />
-    <Content as="section">
+    <Content as="section" className="mx-auto">
       <p>
         Have a question about the blog? Need to contact me — Phil, the author —
         about something? Found a serious piece of wonk?

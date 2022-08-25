@@ -9,13 +9,14 @@ const Layout = ({ location, children }) => {
   const isRootPath = location.pathname === rootPath;
 
   return (
-    <div className="global-wrapper" data-is-root-path={isRootPath}>
+    <div data-is-root-path={isRootPath}>
       <Header />
 
-      <main className="p-4 mx-auto w-[540px]">
+      <main className="padded max-w-screen-xl mx-auto">
         <SkipNavTarget />
         {children}
       </main>
+
       <Footer />
     </div>
   );

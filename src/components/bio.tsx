@@ -1,12 +1,16 @@
+import classnames from 'classnames';
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
 import Content from './content';
 
-const Bio = () => (
+const Bio = ({ className }) => (
   <Content
     as="aside"
-    className="p-4 mt-12 border-t-2 border-brando-300 bg-gradient-to-br from-brando-200 to-brando-100"
+    className={classnames(
+      'p-4 mt-12 border-t-2 border-brando-300 bg-gradient-to-br from-brando-200 to-brando-100 md:p-6',
+      className
+    )}
     compact
   >
     <h2 className="mt-0">About the Author</h2>

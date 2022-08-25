@@ -7,7 +7,6 @@ import {
   getImage,
 } from 'gatsby-plugin-image';
 import React from 'react';
-import { VisuallyHidden } from 'react-aria';
 
 import Content from './content';
 
@@ -43,6 +42,7 @@ const PostSummary = ({
   className,
 }: PostSummaryProps) => {
   const coverImage = cover ? getImage(cover) : null;
+  const imageClasses = '-ml-4 -mt-4 -mr-4 md:-ml-6 md:-mt-6 md:-mr-6';
 
   return (
     <Content
@@ -51,7 +51,10 @@ const PostSummary = ({
         'relative',
         'prose prose-brando',
         'p-4',
+        'md:p-6',
         'bg-brando-200',
+        'md:w-1/2',
+        'xl:w-1/3',
         className
       )}
       compact
@@ -59,23 +62,19 @@ const PostSummary = ({
       <header>
         <Link to={slug} tabIndex={-1} aria-hidden>
           {coverImage ? (
-            <GatsbyImage
-              image={coverImage}
-              alt=""
-              className="-ml-4 -mt-4 -mr-4"
-            />
+            <GatsbyImage image={coverImage} alt="" className={imageClasses} />
           ) : (
             <StaticImage
               src="../../images/social-card.jpg"
               width={720}
               height={405}
               alt=""
-              className="-ml-4 -mt-4 -mr-4"
+              className={imageClasses}
             />
           )}
         </Link>
 
-        <Heading className="!mt-4 text-3xl">
+        <Heading className="!mt-4 md:!mt-6 text-3xl md:text-2xl">
           <Link to={slug} className="no-underline focus:underline">
             {title}
           </Link>
