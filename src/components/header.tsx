@@ -90,6 +90,11 @@ const Header = ({ className }: { className?: string }) => {
                 'shadow-md',
                 'bg-brando-700',
                 'text-[36px]',
+                'absolute',
+                'top-1/2',
+                'right-6',
+                'md:right-8',
+                '-mt-[28px]',
               ].join(' ')}
               ref={buttonRef}
               onClick={() => setIsMenuOpen(true)}
