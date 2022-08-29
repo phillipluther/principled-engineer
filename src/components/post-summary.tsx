@@ -65,7 +65,7 @@ const PostSummary = ({
             <GatsbyImage image={coverImage} alt="" className={imageClasses} />
           ) : (
             <StaticImage
-              src="../../images/social-card.jpg"
+              src="../images/social-card.jpg"
               width={720}
               height={405}
               alt=""

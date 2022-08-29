@@ -38,6 +38,7 @@ const Flourish = ({
         { 'rotate-180': flipped, 'stroke-brando-100': onDark },
         'mx-auto',
         'opacity-50',
+        'max-w-[448px]',
         className
       )}
     >

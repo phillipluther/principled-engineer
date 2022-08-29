@@ -1,10 +1,12 @@
 import * as React from 'react';
 
+import Container from './container';
 import Footer from './footer';
 import Header from './header';
 import { SkipNavTarget } from './skip-nav';
 
 const Layout = ({ location, children }) => {
+  /* @ts-ignore */
   const rootPath = `${__PATH_PREFIX__}/`;
   const isRootPath = location.pathname === rootPath;
 
@@ -12,10 +14,10 @@ const Layout = ({ location, children }) => {
     <div data-is-root-path={isRootPath}>
       <Header />
 
-      <main className="padded max-w-screen-xl mx-auto">
+      <Container as="main">
         <SkipNavTarget />
         {children}
-      </main>
+      </Container>
 
       <Footer />
     </div>

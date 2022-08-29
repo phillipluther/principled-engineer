@@ -1,6 +1,7 @@
 import { GatsbyImage, IGatsbyImageData, getImage } from 'gatsby-plugin-image';
 import React from 'react';
 
+import Container from './container';
 import Flourish from './flourish';
 
 export type ContentHeaderProps = {
@@ -19,7 +20,7 @@ export type ContentHeaderProps = {
 };
 
 const ContentHeader = ({
-  as: Tag = 'header',
+  as = 'header',
   headingLevel: Heading = 'h1',
   title,
   description,
@@ -30,8 +31,8 @@ const ContentHeader = ({
   const coverImage = image?.src ? getImage(image.src) : null;
 
   return (
-    <Tag className="text-center" {...props}>
-      <Flourish className="my-8 max-w-md" />
+    <Container as={as} className="text-center" noX {...props}>
+      <Flourish className="my-8" />
 
       <Heading className="font-display font-medium text-brando-800 text-5xl leading-[1.15] drop-shadow-text-offset md:text-7xl md:leading-tight">
         {title}
@@ -41,14 +42,14 @@ const ContentHeader = ({
 
       {description && (
         <>
-          <Flourish className="my-8 max-w-md" flipped />
-          <p className="text-2xl italic my-8 leading-relaxed md:max-w-xl md:mx-auto">
+          <Flourish className="my-8" flipped />
+          <p className="text-2xl italic my-8 leading-relaxed md:max-w-lg md:mx-auto">
             {description}
           </p>
         </>
       )}
 
-      {!description && <Flourish className="my-8 max-w-md" flipped />}
+      {!description && <Flourish className="my-8" flipped />}
 
       {coverImage && (
         <figure className="-ml-4 -mr-4 md:-ml-6 md:-mr-6 md:mt-12">
@@ -73,7 +74,7 @@ const ContentHeader = ({
           )}
         </figure>
       )}
-    </Tag>
+    </Container>
   );
 };
 
