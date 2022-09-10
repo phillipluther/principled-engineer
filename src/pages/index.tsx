@@ -1,75 +1,30 @@
-import { graphql } from 'gatsby';
 import * as React from 'react';
+import { VisuallyHidden } from 'react-aria';
 
-import Layout from '../components/layout';
-import PostList from '../components/post-list';
 import Seo from '../components/seo';
+import CodeGoodCodeWell from '../images/code-good-code-well.inline.svg';
+import Logo from '../images/principled-engineer-logo.inline.svg';
 
 const title = 'The Principled Engineer: A Blog';
 const description =
-  'The Principled Engineer is a blog about building modern web applications with JavaScript, CSS, HTML, and the ecosystems associated with those technologies';
+  'Phillip Luther, who briefly blogged as The Principled Engineer, is now writing at https://phillipluther.dev; same content with a pinch less bluster';
 
-const BlogIndex = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`;
-  const posts = data.allMarkdownRemark.nodes;
+const BlogIndex = () => (
+  <div className="p-12 container mx-auto">
+    <h1>
+      <VisuallyHidden elementType="span">{title}</VisuallyHidden>
+      <Logo className="mx-auto w-full" />
+    </h1>
 
-  if (posts.length === 0) {
-    return (
-      <Layout location={location} title={siteTitle}>
-        <p>No blog posts found.</p>
-      </Layout>
-    );
-  }
+    <CodeGoodCodeWell className="w-1/2 max-w-full mx-auto h-12 mt-6 mb-12" />
 
-  return (
-    <Layout location={location} title={siteTitle}>
-      <PostList
-        title="All Posts"
-        postsData={posts.map(({ frontmatter, fields, excerpt }) => ({
-          slug: fields.slug,
-          summary: excerpt,
-          ...frontmatter,
-        }))}
-      />
-    </Layout>
-  );
-};
+    <p className="prose mx-auto">
+      I'm now writing over at{' '}
+      <a href="https://phillipluther.dev">phillipluther.dev</a>; same content
+      with a pinch less bluster.
+    </p>
+  </div>
+);
 
 export default BlogIndex;
-
-/**
- * Head export to define metadata for the page
- *
- * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
- */
 export const Head = () => <Seo title={title} description={description} />;
-
-export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    allMarkdownRemark(
-      sort: { fields: [frontmatter___published], order: DESC }
-    ) {
-      nodes {
-        excerpt
-        fields {
-          slug
-        }
-        frontmatter {
-          published(formatString: "MMMM DD, YYYY")
-          title
-          summary
-          cover {
-            childImageSharp {
-              gatsbyImageData(width: 720)
-            }
-          }
-        }
-      }
-    }
-  }
-`;
